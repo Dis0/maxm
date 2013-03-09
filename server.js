@@ -1,5 +1,6 @@
 var http = require("http");
 var url = require("url");
+var port = process.env.PORT || 3000;
 
 function start(route, handle) {
   http.createServer(function(request, response) {
@@ -7,7 +8,7 @@ function start(route, handle) {
     console.log("Request for " + pathname + " received.");
 
     route(handle, pathname, response);
-  }).listen(5050);
+  }).listen(port);
   console.log("Server has started.");
 }
 
